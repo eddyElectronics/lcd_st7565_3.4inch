@@ -46,41 +46,13 @@
 #include <Wire.h>
 #endif
 
-
-//U8G2_ST7565_LM6059_1_4W_SW_SPI u8g2(U8G2_R0, /* clock=*/ 18, /* data=*/ 23, /* cs=*/ 19, /* dc=*/ 5, /* reset=*/22);    // Adafruit ST7565 GLCD
-
-
-U8G2_ST7565_LX12864_1_4W_SW_SPI u8g2(U8G2_R0, /* clock=*/ 18, /* data=*/ 23, /* cs=*/ 19, /* dc=*/ 5, /* reset=*/22);
+ 
+U8G2_ST7565_LX12864_1_4W_SW_SPI u8g2(U8G2_R0, /* clock=*/ 18, /* data=*/ 23, /* cs=*/ 19, /* dc=*/ 5, /* reset=*/22);   // must u8g2.setContrast(100); 
 
 void setup(void) {
-
-  /* U8g2 Project: SSD1306 Test Board */
-  //pinMode(10, OUTPUT);
-  //pinMode(9, OUTPUT);
-  //digitalWrite(10, 0);
-  //digitalWrite(9, 0);   
-
-  /* U8g2 Project: T6963 Test Board */
-  //pinMode(18, OUTPUT);
-  //digitalWrite(18, 1);  
-
-  /* U8g2 Project: KS0108 Test Board */
-  //pinMode(16, OUTPUT);
-  //digitalWrite(16, 0);  
-
-  /* U8g2 Project: LC7981 Test Board, connect RW to GND */
-  //pinMode(17, OUTPUT);
-  //digitalWrite(17, 0);  
-
-  /* U8g2 Project: Pax Instruments Shield: Enable Backlight */
-  //pinMode(6, OUTPUT);
-  //digitalWrite(6, 0); 
-
-  u8g2.begin();  
-
-   u8g2.setDisplayRotation(U8G2_MIRROR);
-//  u8g2.SetFontDirection(2);
-  //u8g2.setContrast(200); 
+ 
+  u8g2.begin(); 
+  u8g2.setContrast(200);  
 }
 
 uint8_t m = 24;
@@ -90,8 +62,8 @@ void loop(void) {
   strcpy(m_str, u8x8_u8toa(m, 2));    /* convert m to a string with two digits */
   u8g2.firstPage();
   do {
-    u8g2.setFont(u8g2_font_logisoso28_tr);
-    u8g2.drawStr(10,63,"9");
+    u8g2.setFont(u8g2_font_logisoso62_tn);
+    u8g2.drawStr(0,63,"9");
     u8g2.drawStr(33,63,":");
     u8g2.drawStr(50,63,m_str);
   } while ( u8g2.nextPage() );
