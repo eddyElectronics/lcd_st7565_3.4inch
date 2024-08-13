@@ -47,8 +47,7 @@
 #endif
 
  
-U8G2_ST7565_LX12864_1_4W_SW_SPI u8g2(U8G2_R0, /* clock=*/ 18, /* data=*/ 23, /* cs=*/ 19, /* dc=*/ 5, /* reset=*/22);   // must u8g2.setContrast(100); 
-
+ U8G2_ST7565_LX12864_F_4W_SW_SPI u8g2(U8G2_R0, /* clock=*/ D2, /* data=*/ D7, /* cs=*/ D4, /* dc=*/ D5, /* reset=*/ D6);
 void setup(void) {
  
   u8g2.begin(); 
